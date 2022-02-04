@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biglietto Treno Calculator</title>
+</head>
+<body>
+
+    <h1>
+        Biglietto Calculator
+    </h1>
+
+    <h3 id="chilometri">
+        Numero di chilometri da percorrere:
+    </h3>
+
+    <h3 id="etá">
+        Etá del passeggero: 
+    </h3>
+
+    <h2 id="prezzo">
+        Prezzo biglietto: 
+    </h2>
+
+
+    <script type="text/javascript">
+
+        alert('Inserisci chilometri da percorrere')
+
+        const chilometri = prompt();
+
+        alert('Inserisci etá del passeggero')
+
+        const etá = prompt();
+
+        if(etá >= 65) {
+            let sconto = 100 - 40;
+        }
+
+        else if(etá < 18) {
+            let sconto = 100 - 20;
+        }
+
+        let prezzo = (((chilometri * 0.21) / 100) * sconto);
+
+        alert('Il prezzo del biglietto é di ' + prezzo)
+
+    </script>
+
+
+</body>
+</html>
