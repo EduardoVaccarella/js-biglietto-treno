@@ -8,47 +8,44 @@
 </head>
 <body>
 
-    <h1>
-        Biglietto Calculator
-    </h1>
-
-    <h3 id="chilometri">
-        Numero di chilometri da percorrere:
-    </h3>
-
-    <h3 id="etá">
-        Etá del passeggero: 
-    </h3>
-
-    <h2 id="prezzo">
-        Prezzo biglietto: 
-    </h2>
-
-
     <script type="text/javascript">
 
-        alert('Inserisci chilometri da percorrere')
+        const chilometri = prompt('Inserisci chilometri da percorrere');
 
-        const chilometri = prompt();
+        const etá = prompt('Inserisci etá passeggero');
 
-        alert('Inserisci etá del passeggero')
+        const scontoMinorenne = 100 - 20;
 
-        const etá = prompt();
+        const scontoOver65 = 100 - 40;
 
-        if(etá >= 65) {
-            let sconto = 100 - 40;
+        let prezzo18 = parseFloat(((chilometri * 0.21) / 100) * scontoMinorenne);
+
+        let prezzo65 = parseFloat(((chilometri * 0.21) / 100) * scontoOver65);
+
+        let prezzo = parseFloat(chilometri * 0.21);
+
+        if((parseInt(etá) < 18) && (parseInt(etá) > 0)) {
+            document.writeln('Il prezzo del biglietto é di ' + prezzo18);
+
+        } else if(parseInt(etá) >= 65) {
+            document.writeln('Il prezzo del biglietto é di ' + prezzo65);
+
+        } else if(parseInt(etá) <= 0) {
+            document.writeln('Etá non valida, inserire valore maggiore di 0');
+
+        } else if((parseInt(etá) >= 18) && (parseInt(etá) < 65)) {
+            document.writeln('Il prezzo del biglietto é di ' + prezzo);
+
+        } else {
+            document.writeln('Etá non valida, inserire un valore numerico intero');
+
         }
 
-        else if(etá < 18) {
-            let sconto = 100 - 20;
+        if(prezzo <= 0) {
+            document.writeln(',quindi biglietto non valido');
         }
-
-        let prezzo = (((chilometri * 0.21) / 100) * sconto);
-
-        alert('Il prezzo del biglietto é di ' + prezzo)
 
     </script>
-
 
 </body>
 </html>
